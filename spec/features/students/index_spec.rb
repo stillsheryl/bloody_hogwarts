@@ -41,7 +41,7 @@ describe "As a visitor" do
 
       visit '/students'
 
-      expect(page).to have_content("Average Age: #{Student.average_age}")
+      expect(page).to have_content("Average Age: #{(Student.average_age).round(1)}")
 
     end
   end
