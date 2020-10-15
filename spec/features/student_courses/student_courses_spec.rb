@@ -13,9 +13,9 @@ describe "As a visitor" do
       student_3 = Student.create!(name: "Draco",
                                    age: 14,
                                  house: "Slytherin")
-      course_1 = student_1.courses.create!(name: "Defense against the Dark Arts")
-      course_2 = student_2.courses.create!(name: "Herbology")
-      course_3 = student_3.courses.create!(name: "Potions")
+      course_1 = Course.create!(name: "Defense against the Dark Arts")
+      course_2 = Course.create!(name: "Herbology")
+      course_3 = Course.create!(name: "Potions")
 
       visit "/students/#{:id}"
 

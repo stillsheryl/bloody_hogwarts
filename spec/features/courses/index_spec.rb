@@ -13,10 +13,15 @@ describe "As a visitor" do
       student_3 = Student.create!(name: "Draco",
                                    age: 14,
                                  house: "Slytherin")
-      course_1 = student_1.courses.create!(name: "Defense against the Dark Arts")
-      course_1 = student_2.courses.create!(name: "Defense against the Dark Arts")
-      course_2 = student_2.courses.create!(name: "Herbology")
-      course_3 = student_3.courses.create!(name: "Potions")
+
+      course_1 = Course.create!(name: "Defense against the Dark Arts")
+      course_2 = Course.create!(name: "Herbology")
+      course_3 = Course.create!(name: "Potions")
+
+      StudentCourse.create!(student_id: student_1.id, course_id: course_1.id)
+      StudentCourse.create!(student_id: student_2.id, course_id: course_1.id)
+      StudentCourse.create!(student_id: student_3.id, course_id: course_2.id)
+      StudentCourse.create!(student_id: student_3.id, course_id: course_3.id)
 
       visit '/courses'
 
