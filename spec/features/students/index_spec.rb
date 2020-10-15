@@ -16,15 +16,21 @@ describe "As a visitor" do
 
       visit '/students'
 
-      expect(page).to have_content("#{student_1.name}")
-      expect(page).to have_content("#{student_1.age}")
-      expect(page).to have_content("#{student_1.house}")
-      expect(page).to have_content("#{student_2.name}")
-      expect(page).to have_content("#{student_2.age}")
-      expect(page).to have_content("#{student_2.house}")
-      expect(page).to have_content("#{student_3.name}")
-      expect(page).to have_content("#{student_3.age}")
-      expect(page).to have_content("#{student_3.house}")
+      within "#student-#{student_1.id}" do
+        expect(page).to have_content("#{student_1.name}")
+        expect(page).to have_content("#{student_1.age}")
+        expect(page).to have_content("#{student_1.house}")
+      end
+      within "#student-#{student_2.id}" do
+        expect(page).to have_content("#{student_2.name}")
+        expect(page).to have_content("#{student_2.age}")
+        expect(page).to have_content("#{student_2.house}")
+      end
+      within "#student-#{student_3.id}" do
+        expect(page).to have_content("#{student_3.name}")
+        expect(page).to have_content("#{student_3.age}")
+        expect(page).to have_content("#{student_3.house}")
+      end
     end
 
     it "I see the average age of all students. (e.g. 'Average Age: 14.5')" do
